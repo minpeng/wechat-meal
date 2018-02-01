@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by pengmin on 2018/1/27.
  */
-@Service("ProductCategoryService")
+@Service("productCategoryService")
 public class ProductCategoryServiceImpl implements ProductCategoryService{
 
     @Autowired
@@ -30,5 +30,10 @@ public class ProductCategoryServiceImpl implements ProductCategoryService{
     @Override
     public ProductCategory save(ProductCategory productCategory) {
         return productCategoryRepository.save(productCategory);
+    }
+
+    @Override
+    public List<ProductCategory> findAll() {
+        return productCategoryRepository.findAll();
     }
 }
