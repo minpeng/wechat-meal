@@ -1,6 +1,7 @@
 package com.meal.service.impl;
 
 import com.meal.domain.ProductInfo;
+import com.meal.dto.CartDTO;
 import com.meal.repository.ProductInfoRepository;
 import com.meal.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,16 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     @Override
     public List<ProductInfo> findAll() {
         return productInfoRepository.findAll();
+    }
+
+    @Override
+    public void increaseStock(List<CartDTO> cartDTOList) {
+
+    }
+
+    @Override
+    public void decreaseStock(List<CartDTO> cartDTOList) {
+
     }
 
     @Override

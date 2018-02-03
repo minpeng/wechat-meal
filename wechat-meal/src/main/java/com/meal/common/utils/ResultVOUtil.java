@@ -28,4 +28,10 @@ public class ResultVOUtil {
         resultVO.setMsg("error");
         return resultVO;
     }
+    public static ResultVO error(String message){
+        ResultVO resultVO=new ResultVO();
+        resultVO.setCode(-1);
+        resultVO.setMsg("error:"+message);
+        return resultVO;
+    }
 }

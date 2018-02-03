@@ -1,5 +1,6 @@
 package com.meal.controller;
 
+import com.meal.common.enums.ResultEnum;
 import com.meal.common.utils.OrderFormToOrderDTOConverterUtil;
 import com.meal.common.utils.ResultVOUtil;
 import com.meal.dto.OrderDTO;
@@ -48,14 +49,14 @@ public class BuyerOrderController {
                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             logger.error("创建订单--参数不正确，orderForm={}", orderForm);
-            return ResultVOUtil.error();
+            return ResultVOUtil.error(ResultEnum.PARAM_ERROR.getMessage());
 //            throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
 //                    bindingResult.getFieldError().getDefaultMessage());
         }
         OrderDTO orderDTO = OrderFormToOrderDTOConverterUtil.convert(orderForm);
         if (CollectionUtils.isEmpty(orderDTO.getOrderDetailList())) {
             logger.error("【创建订单】购物车不能为空");
-            return ResultVOUtil.error();
+            return ResultVOUtil.error(ResultEnum.CART_EMPTY.getMessage());
             //throw new SellException(ResultEnum.CART_EMPTY);
         }
 
@@ -80,7 +81,7 @@ public class BuyerOrderController {
         if (StringUtils.isEmpty(openid)) {
             logger.error("【查询订单列表】openid为空,openid={}", openid);
             //throw new SellException(ResultEnum.PARAM_ERROR);
-            return ResultVOUtil.error();
+            return ResultVOUtil.error(ResultEnum.PARAM_ERROR.getMessage());
         }
         PageRequest request = new PageRequest(page, size);
         Page<OrderDTO> orderDTOPage = orderService.findList(openid, request);

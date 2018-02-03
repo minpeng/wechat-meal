@@ -3,8 +3,10 @@ package com.meal.common.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.meal.common.enums.ResultEnum;
 import com.meal.domain.OrderDetail;
 import com.meal.dto.OrderDTO;
+import com.meal.exception.MyException;
 import com.meal.from.OrderForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +36,7 @@ public class OrderFormToOrderDTOConverterUtil {
                     }.getType());
         } catch (Exception e) {
             logger.error("【对象转换】错误, string={}", orderForm.getItems());
-           return  null;
+            throw new MyException(ResultEnum.PARAM_ERROR)
         }
         orderDTO.setOrderDetailList(orderDetailList);
 
