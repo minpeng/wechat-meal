@@ -93,7 +93,7 @@ public class OrderServiceImpl implements OrderService {
 
         productInfoService.decreaseStock(cartDTOList);
 
-        //return null;
+        return orderDTO;
     }
 
     @Override
