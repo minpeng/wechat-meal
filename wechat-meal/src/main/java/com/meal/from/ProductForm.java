@@ -1,24 +1,11 @@
-package com.meal.domain;
+package com.meal.from;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.meal.common.enums.ProductStatusEnum;
-import com.meal.common.utils.EnumUtil;
-import org.hibernate.annotations.DynamicUpdate;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
- * Created by pengmin on 2018/1/28.
+ * Created by pengm on 2018/2/22.
  */
-@Table(name = "t_product_info")
-@Entity
-@DynamicUpdate //动态跟新时间
-public class ProductInfo {
-    @Id
+public class ProductForm {
     private String productId;
 
     /** 名字. */
@@ -36,16 +23,8 @@ public class ProductInfo {
     /** 小图. */
     private String productIcon;
 
-    /** 状态, 0正常1下架. */
-    private Integer productStatus = ProductStatusEnum.UP.getCode();
-
     /** 类目编号. */
     private Integer categoryType;
-
-    private Date createTime;
-
-    private Date updateTime;
-
 
     public String getProductId() {
         return productId;
@@ -95,40 +74,11 @@ public class ProductInfo {
         this.productIcon = productIcon;
     }
 
-    public Integer getProductStatus() {
-        return productStatus;
-    }
-
-    public void setProductStatus(Integer productStatus) {
-        this.productStatus = productStatus;
-    }
-
     public Integer getCategoryType() {
         return categoryType;
     }
 
     public void setCategoryType(Integer categoryType) {
         this.categoryType = categoryType;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @JsonIgnore
-    public ProductStatusEnum getProductStatusEnum() {
-        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
     }
 }

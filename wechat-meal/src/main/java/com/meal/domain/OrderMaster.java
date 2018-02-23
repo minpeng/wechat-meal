@@ -2,6 +2,7 @@ package com.meal.domain;
 
 import com.meal.common.enums.OrderStatusEnum;
 import com.meal.common.enums.PayStatusEnum;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name="t_order_master")
+@DynamicUpdate //动态跟新时间
 public class OrderMaster {
     /** 订单id. */
     @Id

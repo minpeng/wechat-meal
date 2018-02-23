@@ -4,12 +4,13 @@ spring:
     username: root
     password: pengmin123
     url: jdbc:mysql://127.0.0.1:3306/wechat-meal?characterEncoding=utf-8&useSSL=false
-jpa:
-  show-sql: true
+  jpa:
+    show-sql: true
 
-server:8088
-#server:
-#  /wechat-meal
+#server: 8088
+server:
+  port: 8088
+  context-path: /sell
 
 projectUrl:
   wechatMpAuthorize: http://sell.natapp4.cc

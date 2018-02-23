@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.meal.common.enums.OrderStatusEnum;
 import com.meal.common.enums.PayStatusEnum;
 import com.meal.common.serializer.DateToLongSerializer;
+import com.meal.common.utils.EnumUtil;
 import com.meal.domain.OrderDetail;
 
 
@@ -78,12 +79,12 @@ public class OrderDTO {
 
     @JsonIgnore
     public OrderStatusEnum getOrderStatusEnum() {
-        return OrderStatusEnum.getOrderStatusEnumBycode(orderStatus);
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
     }
 
     @JsonIgnore
     public PayStatusEnum getPayStatusEnum() {
-        return PayStatusEnum.getPayStatusEnumBycode(payStatus);
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
     }
 
     public String getOrderId() {

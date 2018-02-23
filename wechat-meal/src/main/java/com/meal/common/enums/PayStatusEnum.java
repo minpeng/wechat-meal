@@ -4,7 +4,7 @@ package com.meal.common.enums;
  * 支付状态枚举
  * Created by pengm on 2018/1/31.
  */
-public enum PayStatusEnum {
+public enum PayStatusEnum implements CodeEnum {
     WAIT(0, "等待支付"),
     SUCCESS(1, "支付成功");
 
@@ -25,12 +25,5 @@ public enum PayStatusEnum {
         this.message = message;
     }
 
-    public  static PayStatusEnum getPayStatusEnumBycode(Integer code){
-        for( PayStatusEnum payStatusEnum : values() ) {
-            if( payStatusEnum.code == code ) {
-                return payStatusEnum;
-            }
-        }
-        return PayStatusEnum.WAIT;
-    }
+
 }

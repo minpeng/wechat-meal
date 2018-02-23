@@ -3,7 +3,7 @@ package com.meal.common.enums;
 /**
  * Created by pengm on 2018/1/29.
  */
-public enum  ProductStatusEnum {
+public enum  ProductStatusEnum implements CodeEnum {
     UP(1,"上架"),
     DOWN(2,"下架");
 

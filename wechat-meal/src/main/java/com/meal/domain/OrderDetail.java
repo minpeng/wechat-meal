@@ -1,5 +1,7 @@
 package com.meal.domain;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,6 +13,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name="t_order_detail")
+@DynamicUpdate //动态跟新时间
 public class OrderDetail {
     @Id
     private String detailId;
