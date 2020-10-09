@@ -8,5 +8,7 @@ public class WechatMealApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WechatMealApplication.class, args);
+		//初始化项目 
+		//SpringApplication.run(WechatMealApplication.class, args);
 	}
 }
