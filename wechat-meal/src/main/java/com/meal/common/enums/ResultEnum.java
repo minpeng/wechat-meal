@@ -38,7 +38,9 @@ public enum  ResultEnum implements CodeEnum {
 
     LOGIN_FAIL(25, "登录失败, 登录信息不正确"),
 
-    LOGOUT_SUCCESS(26, "登出成功");
+    LOGOUT_SUCCESS(26, "登出成功"),
+
+    REQUEST_LIMIT(50,"限流");
 
     private Integer code;
     private String message;
