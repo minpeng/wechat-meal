@@ -18,6 +18,6 @@ public class MyException extends RuntimeException {
     public MyException(Integer code, String message) {
         super(message);
         this.code = code;
-        this.msg = messgae;
+        this.msg = message;
     }
 }
