@@ -41,6 +41,9 @@ public class OkhttpUtil {
 
                 .protocols(Util.immutableList(Protocol.HTTP_1_1))
 
+                //拦截器
+                .addInterceptor(new DynamicConnectTimeout())
+
                 .build();
 
 
